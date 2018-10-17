@@ -25,11 +25,11 @@ $ scdownload -t https://soundcloud.com/rahulcat/give-me-some-sunshine-3idiots
 
 Downloads a whole playlist concurrently
 ```sh
-$ scdownload -t https://soundcloud.com/anik-thexplorer/sets/my-fav
+$ scdownload -p https://soundcloud.com/anik-thexplorer/sets/my-fav
 ``` 
 
 Downloads a whole playlist one-by-one song
 ```sh
-$ scdownload -c="false" -t https://soundcloud.com/anik-thexplorer/sets/my-fav
+$ scdownload -c="false" -p https://soundcloud.com/anik-thexplorer/sets/my-fav
 ``` 
 
