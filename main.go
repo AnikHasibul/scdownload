@@ -95,7 +95,6 @@ func PlayListDl(val string) {
 	}
 	for _, v := range p.Tracks {
 		if *conc {
-			wg.Add(1)
 			go downloadTrack(v)
 		} else {
 			downloadTrack(v)
@@ -121,6 +120,7 @@ func TrackDl(val string) {
 
 // downloadTrack manages the perfect way to download a track
 func downloadTrack(t *soundcloud.Track) {
+	wg.Add(1)
 	var n int64
 	defer func() {
 		log.Println("[SAVED]", n/1024, "kb", t.Title)
