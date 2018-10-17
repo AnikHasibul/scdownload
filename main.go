@@ -179,6 +179,6 @@ func (l *logger) Fatal(p ...interface{}) {
 		fmt.Println(p...)
 		os.Exit(1)
 	}
-	fmt.Println("An error occured!")
+	fmt.Println("An error occurred!")
 	os.Exit(1)
 }

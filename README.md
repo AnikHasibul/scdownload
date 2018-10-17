@@ -1,5 +1,5 @@
 # scdownload
-
+[![Go Report Card](https://goreportcard.com/badge/github.com/anikhasibul/scdownload)](https://goreportcard.com/report/github.com/anikhasibul/scdownload)
 > A full featured soundcloud downloader, supports downloading playlists and single track. Downloads, even if the track is not downloadable!
 
 **THIS DOWNLOADER ALSO DOWNLOADS THE SONG THAT FLAGGED AS NOT-DOWNLOADABLE BY THE UPLOADER! SO IT'S UP TO YOU TO BE ETHICAL**
