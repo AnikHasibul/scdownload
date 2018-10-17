@@ -142,8 +142,8 @@ func downloadTrack(t *soundcloud.Track) {
 // saveTrack saves the track to a file
 func saveTrack(name, uri string) int64 {
 	out, err := os.Create(strings.Replace(
-		name,
-		" ",
+		url.PathEscape(name),
+		"%20",
 		"_",
 		-1) + ".mp3")
 	if err != nil {
