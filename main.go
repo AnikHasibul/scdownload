@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/yanatan16/golang-soundcloud/soundcloud"
 )
@@ -80,6 +81,8 @@ func main() {
 		TrackDl(val)
 	}
 	wg.Wait()
+	log.Println("Saving all files...")
+	time.Sleep(30 * time.Second)
 }
 
 // PlayListDl downloads a playlist
@@ -141,11 +144,8 @@ func downloadTrack(t *soundcloud.Track) {
 
 // saveTrack saves the track to a file
 func saveTrack(name, uri string) int64 {
-	out, err := os.Create(strings.Replace(
-		url.PathEscape(name),
-		"%20",
-		"_",
-		-1) + ".mp3")
+	out, err := os.Create(
+		prepareName(name) + ".mp3")
 	if err != nil {
 		log.Println(err)
 		return 0
@@ -181,4 +181,32 @@ func (l *logger) Fatal(p ...interface{}) {
 	}
 	fmt.Println("An error occurred!")
 	os.Exit(1)
+}
+
+func prepareName(name string) string {
+	v1 := strings.Replace(
+		name,
+		" ",
+		"_",
+		-1,
+	)
+	v2 := strings.Replace(
+		v1,
+		"/",
+		"-",
+		-1,
+	)
+	v3 := strings.Replace(
+		v2,
+		`\`,
+		"-",
+		-1,
+	)
+	v4 := strings.Replace(
+		v3,
+		"*",
+		"-",
+		-1,
+	)
+	return v4
 }
